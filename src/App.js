@@ -1,10 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
+import Inputs from './components/Inputs';
+import Outputs from './components/Outputs';
 
 function App() {
   return (
     <div className="App">
-      Hello world!
+      <Inputs/>      
+      <Outputs/>
     </div>
   );
 }
