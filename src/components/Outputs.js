@@ -7,8 +7,8 @@ const Outputs = () => {
     const outputs = inputs;
 
     return (
-        <>
-        <h1>OUTPUTS</h1>
+        <div style={{backgroundColor: 'bisque', padding: '.5rem'}} >
+        <h3>### OUTPUTS</h3>
         <div className='outputs'>
         {outputs.map((output, index) => {
             return (
@@ -17,9 +17,10 @@ const Outputs = () => {
                     {output.map(product => {
                         return(
                             <div>
-                                <p>> {product.amount} {product.isImported ? 'importet' : ''} {product.name} at {endPrice(product).toFixed(2)}</p>
+                                <p>> {product.amount} {product.isImported ? 'importet' : ''} {product.name}: {endPrice(product).toFixed(2)}</p>
                             </div>
                         )})}
+                    __________________________________
                     <div className="summary">
                         <p>> Sales Taxes: {salesTax(output).toFixed(2)}</p>
                         <p>> Total: {sum(output)}</p>
@@ -31,7 +32,7 @@ const Outputs = () => {
         })}
             
         </div>
-        </>
+        </div>
     )
 }
 

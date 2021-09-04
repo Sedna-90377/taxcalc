@@ -5,8 +5,8 @@ import './style.css'
 const Inputs = () => {
 
     return (
-        <>
-        <h1>INPUTS</h1>
+        <div style={{backgroundColor: 'lightgray', padding: '.5rem'}}>
+        <h3>### INPUTS</h3>
         <div className='inputs'>
         
         {inputs.map((input, index) => {
@@ -24,7 +24,7 @@ const Inputs = () => {
         })}
             
         </div>
-        </>
+        </div>
     )
 }
 
