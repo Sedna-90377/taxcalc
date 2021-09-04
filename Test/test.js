@@ -1,7 +1,7 @@
 
 const expect = require('../node_modules/must')
 
-const {isImport, isTaxable} = require('../src/Utils')
+const {isImport, isTaxable, taxes} = require('../src/Utils')
 const {inputs} = require('../src/Data')
 
 describe('isImport', () => {
@@ -22,3 +22,15 @@ describe('isTaxable', () => {
     })
 })
 
+
+describe('roundTaxes', () => {
+    it('should return 1.50', () => {
+        expect(taxes(14.99, 10)).to.be.equal(1.50)
+    })
+    it('should return 1.85', () => {
+        expect(taxes(18.33, 10)).to.be.equal(1.85)
+    })
+    it('should return 1.90', () => {
+        expect(taxes(18.77, 10)).to.be.equal(1.90)
+    })
+})
