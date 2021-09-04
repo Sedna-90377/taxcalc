@@ -1,7 +1,7 @@
 
 const isImport = (product) => product.isImported ? true : false;
 
-const isTaxable = (product) => (product.isBook || product.isFood || product.isMedical) ? true : false;
+const isTaxable = (product) => (product.isBook || product.isFood || product.isMedical) ? false : true;
 
 const taxes = (price, taxRate) => {
     price = price * taxRate/100
@@ -20,9 +20,22 @@ const taxes = (price, taxRate) => {
     }
 }
 
+const getTaxRate = (product) => {
+    if (isImport(product) && isTaxable(product)){
+        return 15;
+    } else if (isImport(product) && !isTaxable(product)) {
+        return 5;
+    }else if (isTaxable(product) && !isImport(product)) {
+        return 10;
+    } else return 0;
+}
+    
+
+
 
 module.exports = {
     isImport,
     isTaxable, 
-    taxes
+    taxes, 
+    getTaxRate
 }

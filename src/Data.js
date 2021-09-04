@@ -6,7 +6,7 @@ const inputs = [[
         isFood: false,
         isMedical: false,
         isImported: false,
-        priceNetto: 12.49
+        price: 12.49
     },
     {
         amount: 1,
@@ -15,7 +15,7 @@ const inputs = [[
         isFood: false,
         isMedical: false,
         isImported: false,
-        priceNetto: 14.99
+        price: 14.99
     },
     {
         amount: 1,
@@ -24,7 +24,7 @@ const inputs = [[
         isFood: true,
         isMedical: false,
         isImported: false,
-        priceNetto: 0.85
+        price: 0.85
     }
 ],
 [
@@ -35,7 +35,7 @@ const inputs = [[
         isFood: true,
         isMedical: false,
         isImported: true,
-        priceNetto: 10.00
+        price: 10.00
     },
     {
         amount: 1,
@@ -44,7 +44,7 @@ const inputs = [[
         isFood: false,
         isMedical: false,
         isImported: true,
-        priceNetto: 47.50
+        price: 47.50
     }
 ],
 [
@@ -55,7 +55,7 @@ const inputs = [[
         isFood: false,
         isMedical: false,
         isImported: true,
-        priceNetto: 27.99
+        price: 27.99
     },
     {
         amount: 1,
@@ -64,7 +64,7 @@ const inputs = [[
         isFood: false,
         isMedical: false,
         isImported: false,
-        priceNetto: 18.99
+        price: 18.99
     },
     {
         amount: 1,
@@ -73,7 +73,7 @@ const inputs = [[
         isFood: false,
         isMedical: true,
         isImported: false,
-        priceNetto: 9.75
+        price: 9.75
     },
     {
         amount: 1,
@@ -82,11 +82,10 @@ const inputs = [[
         isFood: true,
         isMedical: false,
         isImported: true,
-        priceNetto: 11.25
+        price: 11.25
     }
 ]]
 
 
-//export {inputs};
 
 module.exports = {inputs}
