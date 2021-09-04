@@ -16,8 +16,8 @@ const Inputs = () => {
                 <div key={index}>Input {index + 1}</div>
                     {input.map(product => {
                         return(
-                            <div key={product.priceNetto}>
-                                <p>> {product.amount} {product.isImported ? 'importet' : ''} {product.name} at {product.priceNetto}</p>
+                            <div key={product.price}>
+                                <p>> {product.amount} {product.isImported ? 'importet' : ''} {product.name} at {product.price}</p>
                             </div>
                         )})}
                </> 

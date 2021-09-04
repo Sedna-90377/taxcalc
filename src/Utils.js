@@ -30,12 +30,26 @@ const getTaxRate = (product) => {
     } else return 0;
 }
     
+export const endPrice = (product) => Number((product.price + taxes(product.price, getTaxRate(product))).toFixed(2));
 
 
-
-module.exports = {
-    isImport,
-    isTaxable, 
-    taxes, 
-    getTaxRate
+export const salesTax = (products) => {
+    let salesTax = []
+    const reducer = (accumulator, curr) => accumulator + curr;
+    products.forEach(product => {
+        salesTax.push(taxes(product.price, getTaxRate(product)))
+    })
+    console.log(salesTax)
+    return Number(salesTax.reduce(reducer)).toFixed(2)
 }
+
+
+
+// module.exports = {
+//     isImport,
+//     isTaxable, 
+//     taxes, 
+//     getTaxRate, 
+//     endPrice, 
+//     salesTax
+// }
