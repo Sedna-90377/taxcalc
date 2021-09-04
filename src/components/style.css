@@ -1,7 +1,26 @@
 .inputs {
-    background-color: pink;
+    background-color: lightgray;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.baskets {
+    border-style: solid;
+    margin-bottom: 1rem;
+    border-width: thin;
+    padding: 1rem;
+    border-radius: 5px;
 }
 
 .outputs {
     background-color: bisque;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-evenly;
 }
+
+.summary {
+    font-style: oblique;
+}
+
