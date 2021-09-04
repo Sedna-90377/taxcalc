@@ -1,7 +1,6 @@
-
 const expect = require('../node_modules/must')
 
-const {isImport, isTaxable, taxes, getTaxRate, endPrice, salesTax} = require('../src/Utils')
+const {isImport, isTaxable, taxes, getTaxRate, endPrice, salesTax, sum} = require('../src/Utils')
 const {inputs} = require('../src/Data')
 
 describe('isImport', () => {
@@ -74,5 +73,17 @@ describe('endPrice', () => {
 describe('salesTax', () => {
     it('should return 1.5', () => {
         expect(salesTax(inputs[0])).to.be.equal(1.50)
+    })
+})
+
+describe('sum', () => {
+    it('should return the sum of the products', () => {
+        expect(sum(inputs[0])).to.be.equal(29.83)
+    })
+    it('should return the sum of the products', () => {
+        expect(sum(inputs[1])).to.be.equal(65.15)
+    })
+    it('should return the sum of the products', () => {
+        expect(sum(inputs[2])).to.be.equal(74.68)
     })
 })

@@ -1,14 +1,18 @@
-
+//check if prouct is imported
 const isImport = (product) => product.isImported ? true : false;
 
+//check if product is taxable
 const isTaxable = (product) => (product.isBook || product.isFood || product.isMedical) ? false : true;
 
+//to get the sum of an array with numbers
+const reducer = (accumulator, curr) => accumulator + curr;
+
+//get the right amount of taxes for each price
 const taxes = (price, taxRate) => {
     price = price * taxRate/100
     let number = price;
     number = number.toFixed(2);
-    number = number.toString().charAt(number.length-1);
-    number = Number(number)
+    number = Number(number.toString().charAt(number.length-1));
     if (number === 0) {
         return (Number(price.toFixed(2)))
     } else if (number < 5){
@@ -20,6 +24,7 @@ const taxes = (price, taxRate) => {
     }
 }
 
+//get tax rate for each product
 const getTaxRate = (product) => {
     if (isImport(product) && isTaxable(product)){
         return 15;
@@ -30,26 +35,32 @@ const getTaxRate = (product) => {
     } else return 0;
 }
     
-export const endPrice = (product) => Number((product.price + taxes(product.price, getTaxRate(product))).toFixed(2));
+//endprice of each product
+const endPrice = (product) => Number(product.price + taxes(product.price, getTaxRate(product)));
 
-
-export const salesTax = (products) => {
+//sum of all saletaxes for each shopping basket
+const salesTax = (products) => {
     let salesTax = []
-    const reducer = (accumulator, curr) => accumulator + curr;
     products.forEach(product => {
         salesTax.push(taxes(product.price, getTaxRate(product)))
     })
-    console.log(salesTax)
-    return Number(salesTax.reduce(reducer)).toFixed(2)
+    return Number(salesTax.reduce(reducer).toFixed(2))
+}
+
+//sum of all endprices for each shopping basket
+ const sum = (products) => {
+    let sum = []
+    products.forEach(product => sum.push(endPrice(product)));
+    return Number(sum.reduce(reducer).toFixed(2))
 }
 
 
-
-// module.exports = {
-//     isImport,
-//     isTaxable, 
-//     taxes, 
-//     getTaxRate, 
-//     endPrice, 
-//     salesTax
-// }
+module.exports = {
+    isImport,
+    isTaxable, 
+    taxes, 
+    getTaxRate, 
+    endPrice,
+    salesTax,
+    sum
+}

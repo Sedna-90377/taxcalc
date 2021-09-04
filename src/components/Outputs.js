@@ -1,8 +1,7 @@
 import React from 'react';
 import {inputs} from '../Data';
-import {endPrice, salesTax} from '../Utils'
 
-
+const {endPrice, salesTax, sum} = require('../Utils')
 const Outputs = () => {
 
     const outputs = inputs;
@@ -13,15 +12,15 @@ const Outputs = () => {
         {outputs.map((output, index) => {
             return (
                 <>
-                <div key={index}>Output {index + 1}</div>
+                <div>Output {index + 1}</div>
                     {output.map(product => {
                         return(
-                            <div key ={product.price}>
-                                <p>> {product.amount} {product.isImported ? 'importet' : ''} {product.name} at {endPrice(product)}</p>
+                            <div>
+                                <p>> {product.amount} {product.isImported ? 'importet' : ''} {product.name} at {endPrice(product).toFixed(2)}</p>
                             </div>
                         )})}
                 <p>>Sales Taxes: {salesTax(output)}</p>
-                <p>>Total: </p>
+                <p>>Total: {sum(output)}</p>
                </> 
             )
         })}

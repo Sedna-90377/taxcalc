@@ -4,9 +4,6 @@ import './style.css'
 
 const Inputs = () => {
 
-   
-    console.log(inputs)
-
     return (
         <>
         <div className='inputs'>
