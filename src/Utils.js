@@ -1,4 +1,4 @@
-//check if prouct is imported
+//check if product is imported
 const isImport = (product) => product.isImported ? true : false;
 
 //check if product is taxable
